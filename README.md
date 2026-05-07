@@ -1,4 +1,4 @@
-###### [🇷🇺 RU](https://github.com/i4ego/sakura/blob/main/README.md)
+###### [🇷🇺 RU](https://github.com/i4ego/sakura/blob/main/README-RU.md)
 ## Quick Start
 ### Installation
 > [!WARNING]
