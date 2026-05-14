@@ -155,5 +155,5 @@ def main(argv: list[str] | None = None) -> None:
 if __name__ == "__main__":
     try:
         main(sys.argv)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         on_exit()
