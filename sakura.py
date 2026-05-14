@@ -6,7 +6,7 @@ from prompt_toolkit.auto_suggest import Suggestion, ThreadedAutoSuggest, AutoSug
 from prompt_toolkit.key_binding import KeyBindings
 
 COMMANDS = {"kill": ("Stop all workers", "Usage:\n\tkill\n\tstop"),
-             "ddos":("Start ddos attack", "Usage:\n\tddos udp example.com 443\t || DDOS example.com:443\n\tddos udp example.com 443 15\t || DDOS example.com:443 (15 workers)"), 
+             "ddos":("Start ddos attack", "Usage:\n\tddos udp example.com 443\t || DDOS example.com:443"), 
              "help":("Show help", "Usage:\n\thelp\n\thelp setup\n\thelp <command>"),
              "synflood":("Start SYNFlood", "Usage:\n\tpython3 sakura.py SYNFLOOD example.com || SYNFlood example.com"), 
              "exit":("Exit from sakura terminal", "Usage:\n\texit"),
