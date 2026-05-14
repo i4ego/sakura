@@ -39,7 +39,7 @@ PASSWORD = ""
 
 def on_exit():
     print(colorama.Style.RESET_ALL)
-    print("\033[H\033[J\n")
+    print("\033[H\033[J")
     raise SystemExit
 
 @kb.add("tab")
@@ -76,6 +76,8 @@ def eval_command(f: tuple[str, list[str]]):
             print(".. under construction ..")
         case "ddos":
             print(".. under construction ..")
+        case "clear":
+            print("\033[H\033[J\n")
         case "synflood":
             print(".. under construction ..")
         case "status":
