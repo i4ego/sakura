@@ -10,16 +10,11 @@ COMMANDS = {"kill": ("Stop all workers", "Usage:\n\tkill\n\tstop"),
              "help":("Show help", "Usage:\n\thelp"),
              "synflood":("Start SYNFlood", "Usage:\n\tpython3 sakura.py SYNFLOOD example.com || SYNFlood example.com"), 
              "exit":("Exit from sakura terminal", "Usage:\n\texit"),
-             "restart":("Restart sakura terminal", "Usage:\n\trestart")}
-SECONDARY_COMMANDS = {"ddos":("udp", "tcp", "get", "head", "post", "website")}
+             "restart":("Restart sakura terminal", "Usage:\n\trestart"),
+             "clear":("Clear sakura terminal", "Usage:\n\tclear")}
 class ListAutoSuggest(AutoSuggest):
     def get_suggestion(self, buffer, document):
         text = document.text
-        if len(text.split(" ")) == 2:
-            for scmd in list(SECONDARY_COMMANDS):
-                for rscmd in SECONDARY_COMMANDS[scmd]:
-                    if rscmd.startswith(text.strip().split(" ")[1]) and rscmd != text.split(" ")[1].strip():
-                        return Suggestion(rscmd[len(text):])
         for cmd in list(COMMANDS):
             if cmd.startswith(text) and cmd != text:
                 return Suggestion(cmd[len(text):])
