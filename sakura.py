@@ -7,11 +7,17 @@ from prompt_toolkit.key_binding import KeyBindings
 
 COMMANDS = {"kill": ("Stop all workers", "Usage:\n\tkill\n\tstop"),
              "ddos":("Start ddos attack", "Usage:\n\tddos udp example.com 443\t || DDOS example.com:443\n\tddos udp example.com 443 15\t || DDOS example.com:443 (15 workers)"), 
-             "help":("Show help", "Usage:\n\thelp"),
+             "help":("Show help", "Usage:\n\thelp\n\thelp setup\n\thelp <command>"),
              "synflood":("Start SYNFlood", "Usage:\n\tpython3 sakura.py SYNFLOOD example.com || SYNFlood example.com"), 
              "exit":("Exit from sakura terminal", "Usage:\n\texit"),
              "restart":("Restart sakura terminal", "Usage:\n\trestart"),
-             "clear":("Clear sakura terminal", "Usage:\n\tclear")}
+             "clear":("Clear sakura terminal", "Usage:\n\tclear"),
+             "shell":("Connect via backdoor", "Usage:\n\tshell example.com:8282"),
+             "stats":("Show stats for tags, regions, devices.", "Usage:\n\tstats"),
+             "proxy":("Connect to proxy.", "Usage:\n\tproxy random\t || Select random device, use them as proxy")}
+
+### -=-=-=- PROMPT SESSION -=-=-=- ###
+
 class ListAutoSuggest(AutoSuggest):
     def get_suggestion(self, buffer, document):
         text = document.text
@@ -25,10 +31,6 @@ session = PromptSession(
     auto_suggest=ThreadedAutoSuggest(ListAutoSuggest()),
     key_bindings=kb,
 )
-
-SERVER = ""
-PORT = 0
-PASSWORD = ""
 
 ### -=-=-=- BINDINGS -=-=-=- ###
 
@@ -99,6 +101,7 @@ def eval_command(f: tuple[str, list[str]]):
                     case _:
                         for command in COMMANDS:
                             if command == args[0]:
+                                print(f"Description: {COMMANDS[command][0]}")
                                 print(COMMANDS[command][1])
                                 return
             for command in COMMANDS:
@@ -108,6 +111,8 @@ def eval_command(f: tuple[str, list[str]]):
             print(".. under construction ..")
         case "ddos":
             print(".. under construction ..")
+        case "shell":
+            print(".. under construction ..")
         case "clear":
             print("\033[H\033[J\n")
         case "synflood":
@@ -115,6 +120,8 @@ def eval_command(f: tuple[str, list[str]]):
         case "status":
             print(".. under construction ..")
         case "proxy":
+            print(".. under construction ..")
+        case "stats":
             print(".. under construction ..")
         case "exit":
             on_exit()
