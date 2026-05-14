@@ -14,7 +14,9 @@ COMMANDS = {"kill": ("Stop all workers", "Usage:\n\tkill\n\tstop"),
              "clear":("Clear sakura terminal", "Usage:\n\tclear"),
              "shell":("Connect via backdoor", "Usage:\n\tshell example.com:8282"),
              "stats":("Show stats for tags, regions, devices.", "Usage:\n\tstats"),
-             "proxy":("Connect to proxy.", "Usage:\n\tproxy random\t || Select random device, use them as proxy")}
+             "proxy":("Connect to proxy.", "Usage:\n\tproxy random\t || Select random device, use them as proxy"),
+             "build":("Build executable", "Usage:\n\tbuild client\n\tbuild server\n\tbuild opts"),
+             "connect":("Connect to remote server.", "Usage:\n\tconnect <host>")}
 
 ### -=-=-=- PROMPT SESSION -=-=-=- ###
 
@@ -122,6 +124,10 @@ def eval_command(f: tuple[str, list[str]]):
         case "proxy":
             print(".. under construction ..")
         case "stats":
+            print(".. under construction ..")
+        case "build":
+            print(".. under construction ..")
+        case "connect":
             print(".. under construction ..")
         case "exit":
             on_exit()
