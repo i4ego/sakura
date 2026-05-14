@@ -71,7 +71,7 @@ def eval_command(f: tuple[str, list[str]]):
     match f[0]:
         case "help":
             for command in COMMANDS:
-                print(f"{command}{(9-len(command))*" "} | {COMMANDS[command][0]}")
+                print(f"{command} {(8-len(command))*' '} | {COMMANDS[command][0]}")
         case "kill":
             print(".. under construction ..")
         case "ddos":
